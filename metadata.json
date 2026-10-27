@@ -1,0 +1,6 @@
+{
+  "name": "Cafe Unplug - Digital Menu & Hangout",
+  "description": "Digital menu, timings, reviews, and table ordering for Cafe Unplug in Pimpalgaon Baswant, Nashik. Featuring artisan pizzas, thick shakes, burgers, and specialty coffees.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

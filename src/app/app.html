@@ -1,0 +1,54 @@
+<div class="min-h-screen bg-[#0d0b09] text-stone-100 flex flex-col font-sans selection:bg-amber-500 selection:text-black">
+  <!-- Clean Header with Actual Logo -->
+  <app-header />
+
+  <!-- Main Content -->
+  <main class="flex-1">
+    <!-- Atmospheric Hero with Background Image -->
+    <app-hero />
+
+    <!-- 2 Products Per Row Digital Menu -->
+    <app-menu />
+
+    <!-- Customer Feedback -->
+    <app-reviews />
+
+    <!-- Location & Google Maps -->
+    <app-location />
+  </main>
+
+  <!-- Footer -->
+  <app-footer />
+
+  <!-- Item Customization Modal -->
+  <app-item-modal />
+
+  <!-- Slide-out Table Order Tray -->
+  <app-order-drawer />
+
+  <!-- Mobile Floating Order Tray Bar (Mobile Optimized) -->
+  @if (orderService.totalItemsCount() > 0) {
+    <div class="fixed bottom-4 left-4 right-4 z-40 sm:hidden">
+      <button
+        type="button"
+        (click)="orderService.toggleTray()"
+        class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 font-black shadow-2xl flex items-center justify-between border border-amber-300/40 cursor-pointer active:scale-95 transition-transform"
+        aria-label="View current order"
+      >
+        <div class="flex items-center gap-2">
+          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-stone-950 text-amber-300 text-xs font-black">
+            {{ orderService.totalItemsCount() }}
+          </span>
+          <span class="text-xs font-bold uppercase tracking-wide">
+            {{ orderService.orderType() === 'dine-in' ? orderService.tableNumber() : 'Takeaway' }} Tray
+          </span>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <span class="text-sm font-black">₹{{ orderService.grandTotal() }}</span>
+          <span class="material-icons text-sm">arrow_forward</span>
+        </div>
+      </button>
+    </div>
+  }
+</div>
